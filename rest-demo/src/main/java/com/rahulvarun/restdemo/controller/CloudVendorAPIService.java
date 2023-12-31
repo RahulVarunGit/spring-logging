@@ -12,7 +12,11 @@ public class CloudVendorAPIService {
 	
 	@GetMapping("{vendorId}")
 	public CloudVendor getCloudVendorDetails(String vendorId) {
-		return new CloudVendor("A1","Smith","Bloomington,IL","3091234567");
+		if (vendorId == "A1")
+			return new CloudVendor("A1","Smith","Bloomington,IL","3091234567");
+		else
+			return new CloudVendor("Invalid Vendor ID","","","");
+		
 	}
 
 }
