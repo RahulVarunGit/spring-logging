@@ -1,5 +1,6 @@
 package com.rahulvarun.restdemo.controller;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,7 +37,21 @@ public class CloudVendorAPIService {
 	@PutMapping
 	public String putCloudVendorDetails(@RequestBody CloudVendor cloudVendor) {
 		this.cloudVendor = cloudVendor;
-		return("Cloud Vendor Added");
+		return("Cloud Vendor Updated");
 	}
+	
+	@DeleteMapping("{id}")
+	public String deleteCloudVendorDetails(@PathVariable String id) {
+		if (cloudVendor == null)
+			return ("Cloud Vendor Not Found");
+		if (id.equals(cloudVendor.getVendorId())) {
+			cloudVendor = null;
+			return("Cloud Vendor Deleted");
+		}
+		else {
+			return("Cloud Vendor Not Found");
+		}
+	}
+
 
 }
