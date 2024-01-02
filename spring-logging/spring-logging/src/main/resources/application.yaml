@@ -1,0 +1,3 @@
+#logging:
+#  level:
+#    com.rahulvarun.springlogging: DEBUG
